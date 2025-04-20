@@ -43,7 +43,7 @@ for entry in data:
     hindi_sentence = entry["hindi_sentence"]
     
     # Check if audio file exists
-    audio_file = f"final_audio_24hz/{sentence_id}.wav"
+    audio_file = f"final_audio_24khz/{sentence_id}.wav"
     if os.path.exists(audio_file):
         # Format: file_id|text
         metadata.append(f"{sentence_id}|{hindi_sentence}")
@@ -71,7 +71,7 @@ mkdir -p dataset/wavs
 
 # Copy and/or resample your audio files to 24kHz if needed
 # For simplicity, we'll link existing files
-for wav in final_audio_24hz/*.wav; do
+for wav in final_audio_24khz/*.wav; do
     filename=$(basename "$wav")
     ln -s "$(realpath $wav)" "dataset/wavs/$filename"
 done
@@ -246,7 +246,7 @@ mkdir -p dataset/wavs
 python json_to_metadata.py
 
 # 4. Link audio files to dataset directory
-for wav in final_audio_24hz/*.wav; do
+for wav in final_audio_24khz/*.wav; do
     filename=$(basename "$wav")
     ln -s "$(realpath $wav)" "dataset/wavs/$filename"
 done

@@ -3,7 +3,7 @@
 
 # Default values
 JSON_FILE="final.json"
-AUDIO_DIR="final_audio_24hz"
+AUDIO_DIR="final_audio_24khz"
 OUTPUT_DIR="xtts_hindi_finetune"
 NUM_GPUS=1
 BATCH_SIZE=8
